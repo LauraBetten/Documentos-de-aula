@@ -1,0 +1,272 @@
+---
+title: "Aula2NovembroSemana7"
+author: "Laura Bettencourt"
+date: today
+format:
+  html:
+    embed-resources: true
+  docx: default
+editor: visual
+---
+
+# Reading and preparing the data
+
+```{r}
+obs_data <- read.csv("obs_data.csv")
+seg_data <- read.csv("seg_data.csv")
+obs_data$dist <- (obs_data$distbegin + obs_data$distend) / 2
+obs_data$region <- factor(ifelse(obs_data$lat < 39, "South", "North"), levels = c("South", "North"))
+# Add the temperature of the corresponding segment to each sighting.
+segment_match <- match(obs_data$Sample.Label, seg_data$Sample.Label)
+obs_data$SST_day <- seg_data$SST_day[segment_match]
+# A segment may contain more than one sighting. For the first analysis,
+# retain only one row per segment in which dolphins were detected.
+detection_segments <- obs_data[!duplicated(obs_data$Sample.Label), ]
+
+```
+
+
+Confirm the dimensions of the objects and the number of missing values in the variables you will analyse.
+
+```{r}
+# Complete and run.
+dim(obs_data)
+# 737 linhas e 18 colunas
+```
+
+What is the dimension of the object for analysis?
+The dimension of the segment object:
+```{r}
+dim(detection_segments)
+```
+
+Are there any NAs? (verificar se há dados not available)
+```{r}
+sum(is.na(detection_segments$SST_day))
+```
+
+Are there any NAs?
+```{r}
+sum(is.na(obs_data$size))
+```
+
+# Exercise 1 Before testing
+
+## 1. the ecological question
+
+Se os golfinhos se econtram em alguma temperatura específica, foi visto que apareciam em locais em que a temperatura era menor que 20ºC\
+OU\
+Might our sample of observations be consistent with dolphins preferring tempertures below 20ºC? 
+
+
+## 2. the sampling unit (unidade de amostragem)
+
+The sampling units are segments of effort with dolphins detected on them. We have `r dim(detection_segments)[1]` of these.\
+OU
+```{r}
+nrow(detection_segments)
+```
+
+
+## 3. the response variable and its measurement scale (variável de resposta)
+A temperatura\
+The temperature, and it is a continuous variable
+
+
+## 4. The null hypothesis $H_0$ and alternative $H_1$, using symbols and words
+hipotese nula é menor ou igual a 20ºC
+hipotese alternativa é maior ou igual a 20ºC
+
+$H_0: \mu \le 20$ \
+
+the mean value of segments where dolphins exist is less or equal to 20\
+
+$H_1: \mu > 20$
+ 
+
+## 5. the significance level
+alfa = 0.01\
+I will choose 0.01, i only want to find a non existing effect 1 out of every 100 times i would conduct the test.
+
+
+## 6. the relevant assumptions
+
+The assumptions (of a parametric teste over the mean) are:\
+1. the observations should be independent\
+
+2. the residuals (here it is the same as the observations) should be Gaussian
+
+
+
+
+## Also answer:
+## Can independence be confirmed with a normality test?
+
+
+
+
+## Can sightings made in the same segment, day or region automatically be treated as independent?
+
+
+
+
+## Why should the choice between a one-sided and two-sided test be made before examining the result?
+
+
+
+
+
+# Exercise 2 One-sample test
+
+## Question
+In segments containing at least one detection, is the mean sea-surface temperature compatible with 20 °C?\
+
+Use a two-sided test with (H_0: = 20) °C. This question describes conditions in segments with detections. On its own, it is not a test of habitat preference because it does not compare segments with and without detections.\
+
+## 4.2 Exploration and assumptions\
+
+**1. Calculate (n), the mean, median, standard deviation and standard error.**\
+
+
+```{r}
+hist(detection_segments$SST_day, main="", xlab="Temperature (ºC)")
+abline(v=20,lty=2,lwd=3,col="lightblue")
+abline(v=mean(detection_segments$SST_day),lty=2,lwd=3,col="red")
+legend("topleft", lty=c(2,1), lwd=3, col=c("lightblue","red"), legend=c("H0","Observed mean"))
+```
+
+
+```{r}
+mean(detection_segments$SST_day)
+sd(detection_segments$SST_day)
+range(detection_segments$SST_day)
+```
+
+The minimum value of SST where a dolphin was observed was `r round(min(detection_segments$SST_day),2)`
+the maximum was `r max(detection_segments$SST_day)` and the mean was `r mean(detection_segments$SST_day)` ºC.
+
+**2. Evaluate the assumptions of a parametric test for the mean**\
+
+i will use a kolmogrov-smirnov test for gaussanity. first need to standardize the data
+```{r}
+#standardizar os dados
+#subtrair a media e dividir pelo desvio padrao
+scaledSST <- detection_segments$SST_day - mean(detection_segments$SST_day)/sd(detection_segments$SST_day)
+ks.test(scaledSST, y="pnorm")
+```
+
+
+Given the p value, i should reject H0. that means that strictly i should use a non-parametric test.
+
+Teste nao paramétrico
+
+```{r}
+wilcox.test(x=detection_segments$SST_day, mu=20, alternative ="two.sided")
+```
+
+But this was a bilateral test, but we want a unilateral test - remember our $H0$
+
+```{r}
+wilcox.test(x=detection_segments$SST_day, mu=20, alternative ="greater")
+
+```
+
+
+**3. Produce a histogram and a Q-Q plot.**\
+
+
+
+
+**4. Note: if you use `shapiro.test()`, mus be considering only on a reproducible subsample containing no more than 500 observations. Compare this result with the graphical assessment.**\
+
+
+**5. Discuss spatial and temporal independence. shapiro.test() cannot resolve this assumption**\
+
+
+
+
+### **4.3 The t-test and confidence interval** 
+run the test and identify the estimate, t estatistic, degrees of freedom, p-value and 95% confidence interval\
+
+implementei um teste de t, even if the assumption test tells me i should not
+```{r}
+myttestBi <- t.test(x=detection_segments$SST_day , mu =20, alternative = "two.sided",)
+names(myttestBi)
+myttestBi$conf.int
+```
+
+
+```{r}
+t.test(x=detection_segments$SST_day , mu=20, alternative = "greater",)
+
+```
+
+
+
+**Explain why the confidence interval and the two-sided test lead to the same decision about 20°C.**
+
+```{r}
+hist(detection_segments$SST_day, main="", xlab="Temperature (ºC)")
+abline(v=20,lty=2,lwd=3,col="lightblue")
+abline(v=mean(detection_segments$SST_day),lty=2,lwd=3,col="red")
+legend("topleft", lty=c(1,1), lwd=3, col=c("lightblue","red","darkgreen"), legend=c("H0","Observed mean","95% CI"))
+
+abline(v=myttestBi$conf.int,lty=2, col="darkgreen",lwd=3)
+```
+
+
+Que valores de $\mu$ me levariam a não rejeitar a H0
+
+
+
+
+## 5 Exercise 3 Two independent samples
+
+Does the mean size of observed groups differ north and south of 39° N?\
+1. Write (H_0) and (H_1).\
+2. Show the number of sightings in each region.\
+3. Calculate the mean, median and standard deviation for each region.\
+4. Visualise the distributions on the original scale and after applying log1p(size).\
+
+
+```{r}
+table(obs_data$region)
+```
+
+We have `r sum(obs_data$region=="South")` observations in the south and `r sum(obs_data$region=="North")` in the north.
+
+
+```{r}
+mytab <- rbind(tapply(X=obs_data$size, INDEX = obs_data$region, FUN=mean), tapply(X=obs_data$size, INDEX = obs_data$region, FUN=median), tapply(X=obs_data$size, INDEX = obs_data$region, FUN=sd))
+row.names(mytab) <- c("Mean","Median","Standard Deviation")
+knitr::kable(mytab)
+
+```
+
+```{r}
+par(mfrow = c(1, 2))
+boxplot(obs_data$size ~ obs_data$region, data = obs_data)
+boxplot(log1p(obs_data$size) ~ obs_data$region, data = obs_data)
+
+```
+
+
+
+Testar usando o teste de t
+
+```{r}
+t.test(x=obs_data$size[obs_data$region=="South"],y= obs_data$size[obs_data$region=="North"],alternative ="two.sided")
+```
+
+Testar usando o teste de wilcox, nível de significancia 0.01
+```{r}
+wilcox.test(x=obs_data$size[obs_data$region=="South"],y= obs_data$size[obs_data$region=="North"],alternative ="two.sided")
+
+```
+
+
+## Exercise 4 Paired comparison by year
+
+
+
+
