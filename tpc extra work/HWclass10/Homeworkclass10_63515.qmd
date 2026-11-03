@@ -1,0 +1,99 @@
+---
+title: "HomeworkClass10_63515"
+author: "Laura Bettencourt 63515"
+date: today
+format:
+  html:
+    embed-resources: true
+  docx: default
+editor: visual
+---
+## O meu raciocínio
+Para obtermos uma estimativa da média com uma determinada precisão, o tamanho necessário da amostra depende da variabilidade da população e do erro máximo que aceitamos.\
+Se os valores forem muito diferentes entre si, precisamos de mais observações para estimar a média com a mesma precisão.\
+Mas por outro lado, se quisermos aceitar um erro menor, também precisamos de uma amostra maior. Com isto tudo, assumimos um nível de confiança semelhante em todos.
+
+De acordo com o powerpoint da Teórica, o tamanho necessário da amostra é diretamente proporcional à variância, se a variância duplicar -> a amostra necessária também duplica.\
+Quanto ao erro, a relação é inversamente proporcional e depende do seu quadrado: se eu reduzir o erro para metade, isto exige uma amostra quatro vezes maior.
+
+## Tamanho da amostra do exercicio do professor
+
+```{r}
+# 0.975 -> a probabilidade usada para encontrar o limite
+# 0 -> a média da distribuição normal
+# 1 -> o desvio padrão
+((qnorm(0.975, 0, 1)*10)/3)^2
+```
+
+Dá aproximadamente 42.7 observações, então assumimos 43 observações.
+
+## Efeito de duplicar a variância
+O desvio padrão era 10, a variância é o seu quadrado - 10^2 = 100\
+
+Para verificar o efeito da variância, dupliquei-a de 100 para 200, mantendo o erro máximo de 3 e o mesmo nível de confiança.
+
+```{r}
+#Para usar a nova variância de 200, precisamos do desvio-padrão correspondente que é a raíz quadrada de 200
+((qnorm(0.975, 0, 1) * sqrt(200)) / 3)^2
+```
+
+O valor duplicou, passou de 42.68 para 85.37. Seriam então necesárias 86 observações.
+
+
+## Efeito de reduzir o erro para metade
+Vou reduzir o erro de 3 para 1.5, mantendo o desvio padrão em 10 e o mesmo nível de confiança
+
+```{r}
+((qnorm(0.975, 0, 1) * 10) / 1.5)^2
+```
+
+O tamanho calculado da amostra passou de 42.68 para 170.73 - reduzir o erro para metade exige uma amostra quatro vezes maior.\
+Assim seriam necessárias 171 observações.
+
+
+## Segunda pergunta do professor: qual é a proporção que exige uma amostra maior para ser estimada com o mesmo erro e confiança?
+
+O que eu espero é que uma proporção próxima de 0.5 exija uma amostra maior.\
+O tamanho da amostra depende de p(1 − p), que atinge o valor máximo quando p = 0.5
+
+Para p=0.2:
+```{r}
+p <- 0.2
+#aceita uma margem de erro de 5%:
+erro <- 0.05
+
+(qnorm(0.975, 0, 1)^2 * p * (1-p)) / erro^2
+```
+Seriam necessárias 246 observações numa proporção de 0.2.
+
+
+Para p=0.5:
+```{r}
+p <- 0.5
+(qnorm(0.975, 0, 1)^2 * p * (1-p)) / erro^2
+```
+
+Portanto deu 385 observações, numa proporção de 0.5, que foi o que esperávamos.
+
+CONCLUSÃO DISTO:
+Sendo assim, estimar uma proporção de 0.5 exige uma amostra maior do que estimar uma proporção de 0.2, mantendo o erro absoluto de 0,05 e o nível de confiança de 95%.\
+A proporção de 50% (0.5) é a mais difícil de estimar com a mesma precisão, porque metade dos indivíduos tem a característica e metade não, havendo maior variabilidade. Por isso, precisamos de uma amostra maior.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

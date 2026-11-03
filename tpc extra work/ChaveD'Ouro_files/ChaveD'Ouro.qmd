@@ -1,0 +1,26 @@
+---
+title: "Chave D’Ouro & Números de Lata"
+author: "Laura Bettencourt"
+format: html
+editor: visual
+---
+
+## Crítica escrita aos números nos pacotes de açúcar Chave D'Ouro
+
+Todos os valores indicados nestes pacotes de açúcar fazem uma comparação com o tempo que uma pessoa duraria a beber um café, o problema é que esse intervalo não é fixo, uma pessoa pode beber o café em 30 segundos ou em 10 minutos, e para certas comparações feitas nesta fotografia, 1 segundo já faz diferença no valor que apresentam.
+
+- “Enquanto bebe este café um beija-flor bate as asas cerca de 1260 vezes.” : Este é um dos exemplos em que 1 segundo já mudaria o valor de 1260 batimentos de asas pelo tempo de bebida do café, pois um beija flor em média bate as asas 50-90 vezes por segundo.
+
+- “Enquanto bebe este café mais de 5500 espécies de animais entram em risco de extinção.” : O problema nesta frase é que dá a entender que enquanto alguém bebe este café 5500 espécies passam a estar ameaçadas, no entanto, o número pode referir-se a espécies que já estavam em risco antes disso. Assim, esta frase não é muito clara e é enganadora.
+
+- “Enquanto bebe este café o planeta Terra completa cerca de 25,7 km de rotação.” : Esta é outra afirmação que depende do tempo que se demora a beber o café, se o café demorar mais ou menos tempo, a distância que o planeta Terra completa será diferente. Logo, os 25,7 km só fazem sentido se forem indicados o tempo e o local usados no cálculo.
+
+- “Enquanto bebe este café o cérebro envia e recebe cerca de 6 triliões de mensagens.” : Outra vez, não é possível verificar os 6 triliões apresentados no pacote pois não se sabe a duração do café e não é explicado o que contam como “mensagens”, logo é impossível ser preciso e apresentar um número concreto como o que foi apresentado.
+
+- “Enquanto bebe este café mais de 34 000 espécies de plantas entram em risco de extinção.” : Este pacote é quase idêntico à frase das espécies de animais que entram em risci de extinção. Novamente, só dizem que 34 000 espécies de plantas “entram” em risco de extinção, mas já podem ter estado em risco antes.
+
+- “Enquanto bebe este café ocorrem em média 5 sismos.” : Segundo uma entidade que estuda sismos, ocorrem cerca de 500 000 sismos detetáveis por ano no mundo. Isso equivale a, em média, aproximadamente 1 sismo por minuto, então, para ocorrerem 5 sismos, a pessoa teria de demorar cerca de 5 minutos a beber o café. Tal como já referi em quase todos os exemplos, não é especificado quanto tempo a pessoa demora a beber o café, e adicionalmente, não significa que ocorram exatamente 5 sismos sempre que passam 5 minutos.
+
+### Conclusão
+
+Em suma, os números mostrados podem parecer exatos, mas a duração de “beber este café” não é definida e faltam explicações sobre os cálculos, sem esse contexto as frases podem enganar.

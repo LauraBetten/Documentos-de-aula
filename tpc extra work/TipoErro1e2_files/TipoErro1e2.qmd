@@ -1,0 +1,15 @@
+---
+title: "Erros Tipo I e II"
+author: "Laura Bettencourt"
+format: html
+editor: visual
+---
+## Que tipo de erro é pior, tipo I ou II?
+
+Primeiro vou esclarecer o que é um erro de tipo I e um erro de tipo II. O primeiro acontece quando descobrimos que existe algo, mas que depois na realidade não existe. E o segundo acontece quando não descobrimos nada, mas depois afinal existe algo.
+
+Depois desta explicação, um exemplo disto pode ser estudar a poluição num rio, onde se houver um erro de tipo I, concluímos que existe poluição num rio quando na realidade não existe. Mas se houver um erro de tipo II, não detetamos a poluição perigosa aos organismos na água, e estes estão expostos a tal. 
+
+## Conclusão
+
+Portanto, foi muito mais perigoso não detetar a poluição e depois descobrir que ela existe (tipo II), do que detetar algo de errado mas que na verdade não existe (tipo I), pois põe em causa a sobrevivência dos seres vivos no rio. Este é um daqueles casos em que é melhor ser pessimista e prever ou criar um erro que não existe para a salvaguarda do ecossistema.

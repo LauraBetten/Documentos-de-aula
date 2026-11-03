@@ -1,0 +1,71 @@
+---
+title: "HomeWorkClass11_63515"
+author: "Laura Bettencourt"
+date: today
+format:
+  html:
+    embed-resources: true
+  docx: default
+editor: visual
+---
+
+# **A abundância de periquitos-de-colar difere entre parques urbanos e zonas agrícolas com árvores?**
+
+## Logistics:
+O que preciso para conseguir realizar este estudo, em termos de tempo, dinheiro, pessoas e material?\
+
+- **Deslocações e custos:** planear o transporte até aos parques urbanos e às zonas agrícolas, considerando a disponibilidade.
+- **Autorizações:** garantir acesso aos locais e pedir autorização para entrar em terrenos privados, quando necessário
+- **Material:** levar binóculos, telemóvel ou GPS e uma ficha para registar as observações
+- **Tempo disponível:** organizar as visitas de modo a dedicar um esforço de observação semelhante aos dois habitats
+- **Observadores:** definir quem fará as contagens e garantir que consegue identificar o periquito-de-colar.
+
+
+
+## Filters (detetabilidade):
+Estas medidas vão ajudar a tornar as contagens comparáveis, mas não garantem que todas as aves presentes sejam detetadas.
+
+- **Vegetação:** registar a densidade da vegetação, porque pode esconder aves e dificultar a contagem
+- **Ruído:** registar o ruído de trânsito ou outras fontes que possam dificultar ouvir as aves
+- **Condições de observação:** realizar as contagens em horários comparáveis e evitar chuva ou vento forte
+- **Método:** usar a mesma duração e área de observação nos dois habitats, registando as aves vistas e ouvidas e evitando contar o mesmo indivíduo duas vezes
+- **Interpretação:** considerar que uma contagem menor pode resultar de maior dificuldade de deteção, e não necessariamente de menor abundância.
+
+
+## How to select the sampling units?
+Tenho de selecionar randomly vários locais de cada habitat, com o mesmo esforço de observação e que estejam sificientemente separados para reduzir a possibilidade de contar as mesmas aves duas vezes.
+
+- **Separar por habitat:** identificar parques urbanos e zonas agrícolas com árvores na região escolhida
+- **Vários locais:** incluir vários locais de cada habitat, para a comparação não depender apenas de um parque e de uma zona agrícola
+- **Aleatorização:** selecionar os locais e os pontos de observação aleatoriamente entre os elegíveis, sem escolher apenas onde já sei que existem periquitos
+- **Esforço equilibrado:** realizar um número semelhante de contagens nos dois habitats, usando a mesma duração e área de observação
+- **Independência:** manter uma separação boa entre pontos e locais para reduzir a possibilidade de contar os mesmos indivíduos
+
+## Which variables should we collect? (o que é relevante)
+Aqui vemos o que queremos comparar e informações que ajudem a interpretar as contagens.
+
+- **Número de periquitos-de-colar detetados:** a medida observada, que não corresponde necessariamente a todas as aves presentes, só as que conseguimos detetar
+- **Tipo de habitat:** parque urbano ou zona agrícola com árvores
+- **Local e ponto de observação:** sítio em concreto onde fiz a observação
+- **Data, hora e duração:** para verificar se o esforço e os períodos de observação são comparáveis
+- **Condições de observação:** vento, chuva, ruído e densidade da vegetação, porque podem afetar ou obstruír a deteção
+
+## Potential confounding effects 
+Se eu for visitar os parques de manhã e as zonas agrícolas à tarde, se eu contar mais aves em algum deles, pode ter sido por causa do habitat ou do horário, portanto tenho de evitar estas explicações que podem ser misleading.
+
+- **Horário e época do ano:** observar os dois habitats na mesma altura do ano
+- **Esforço de observação:** manter a mesma duração e área de contagem
+- **Observadores:** usar o mesmo observador ou distribuir os observadores pelos dois habitats
+- **Características dos locais:** registar diferenças na disponibilidade de alimento, árvores e perturbação humana que possam ajudar a explicar diferenças entre contagens.
+
+
+
+
+
+
+
+
+
+
+
+
